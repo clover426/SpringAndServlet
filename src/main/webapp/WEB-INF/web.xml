@@ -1,0 +1,35 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+        http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+        version="3.1" metadata-complete="true">
+    <display-name>Archetype Created Web Application</display-name>
+    <servlet>
+        <servlet-name>QueryStudentByIdServlet</servlet-name>
+        <servlet-class>com.servlet.QueryStudentByIdServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QueryStudentByIdServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    
+    <context-param>
+    <!--&lt;!&ndash;监听器的父类，中有一个contextConfigLocation，该属性值保持着容-->
+    <!--器配置文件applicationContext.xml的位置 -->
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:*.xml</param-value>
+    </context-param>
+    <listener>
+        <!--配置spring-web提供的监听器
+         初始化化Ioc容器，必须告诉监听器此容器的位置
+        -->
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+</web-app>
